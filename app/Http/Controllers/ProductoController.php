@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -11,15 +13,17 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('producto.index');
+        $productos = Producto::query()->orderBy('id','desc')->simplePaginate(10);
+        return view('producto.index', ['productos' => $productos]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {   
+        $categorias = Categoria::query()->orderBy('id','desc')->simplePaginate(100);
+        return view('producto.create', ['categorias' => $categorias]);
     }
 
     /**
@@ -27,7 +31,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'nombre' => ['required', 'string'],
+            'descripcion' => ['required', 'string'],
+            'categoria' => ['required', 'int'],
+            'precio' => ['required', 'decimal:0,5'],
+        ]);
+
+        $data['user_id'] = $request->user()->id;
+        $note = Producto::create($data);
+
+        return to_route('producto.index', $note)->with('message', 'Note was create');
     }
 
     /**
