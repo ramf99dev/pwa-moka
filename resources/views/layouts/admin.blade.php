@@ -16,13 +16,13 @@
         @laravelPWA
     </head>
     <body>
-        <div class="grid grid-rows-7 grid-cols-5 h-screen">
-            <div class="bg-pink-600 row-span-1 col-span-5 grid grid-cols-5 place-items-center">
-                <img src="/images/mokalogo.png" alt="" class="col-span-1 w-5/6">
-                {{-- <h2 class="col-start-4 col-span-2 text-neutral-50 font-extrabold text-5xl font-sans">Panel de Administracion</h2>      --}}
+        <div class="grid h-screen grid-cols-5 grid-rows-7">
+            <div class="grid grid-cols-5 col-span-5 row-span-1 bg-pink-600 place-items-center">
+                <img src="/images/mokalogo.png" alt="" class="w-5/6 col-span-1">
+                {{-- <h2 class="col-span-2 col-start-4 font-sans text-5xl font-extrabold text-neutral-50">Panel de Administracion</h2>      --}}
             </div>
 
-            <div class="bg-neutral-50 row-span-6 col-span-1 border-r-2 border-neutral-200 flex flex-col items-center">
+            <div class="flex flex-col items-center col-span-1 row-span-6 border-r-2 bg-neutral-50 border-neutral-200">
                 <x-nav-item titulo="Productos"/>
                 <x-nav-item titulo="Usuarios"/>
                 <x-nav-item titulo="Reservas"/>
@@ -30,7 +30,7 @@
                 <x-nav-item titulo="Estadísticas"/>
             </div>
 
-            <div class="bg-neutral-50 row-span-6 col-span-4">
+            <div class="col-span-4 row-span-6 bg-neutral-50">
                 {{ $slot }}
             </div>    
             </div>

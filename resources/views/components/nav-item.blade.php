@@ -1,5 +1,5 @@
 <a href=""
-    class=" flex justify-start items-center h-12 gap-x-4 bg-pink-100 rounded-xl text-xl font-bold w-4/5 mt-8 hover:text-pink-600 hover:fill-pink-600 pl-8">
+    class="flex items-center justify-start w-4/5 h-12 pl-8 mt-8 text-xl font-bold bg-pink-100  gap-x-4 rounded-xl hover:text-pink-600 hover:fill-pink-600">
     @if ($titulo === 'Productos')
         <svg class="h-8" viewBox="0 0 511.999 511.999">
             <g>
