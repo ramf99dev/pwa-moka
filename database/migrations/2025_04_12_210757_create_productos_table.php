@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->char('nombre',255);
-            $table->foreignId('categoria')->references('id')->on('categorias');
+            $table->foreignId('categoria_id')->constrained()->onDelete('cascade');
             $table->float('precio');
             $table->longText('descripcion');
         });

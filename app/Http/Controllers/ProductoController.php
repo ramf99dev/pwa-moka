@@ -34,14 +34,13 @@ class ProductoController extends Controller
         $data = $request->validate([
             'nombre' => ['required', 'string'],
             'descripcion' => ['required', 'string'],
-            'categoria' => ['required', 'int'],
+            'categoria_id' => ['required', 'int'],
             'precio' => ['required', 'decimal:0,5'],
         ]);
 
-        $data['user_id'] = $request->user()->id;
-        $note = Producto::create($data);
+        $producto = Producto::create($data);
 
-        return to_route('producto.index', $note)->with('message', 'Note was create');
+        return to_route('producto.index', $producto);
     }
 
     /**
@@ -71,8 +70,10 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+
+        return to_route('producto.index');
     }
 }

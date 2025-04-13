@@ -7,11 +7,9 @@
 
         <title>{{ config('app.name', 'Panel de Control') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @laravelPWA
     </head>
@@ -23,11 +21,11 @@
             </div>
 
             <div class="flex flex-col items-center col-span-1 row-span-6 border-r-2 bg-neutral-50 border-neutral-200">
-                <x-nav-item titulo="Productos"/>
-                <x-nav-item titulo="Usuarios"/>
-                <x-nav-item titulo="Reservas"/>
-                <x-nav-item titulo="Órdenes"/>
-                <x-nav-item titulo="Estadísticas"/>
+                <x-nav-item titulo="Productos" ruta="producto.index"/>
+                <x-nav-item titulo="Usuarios" ruta="producto.create"/>
+                <x-nav-item titulo="Reservas" ruta="producto.create"/>
+                <x-nav-item titulo="Órdenes" ruta="producto.create"/>
+                <x-nav-item titulo="Estadísticas" ruta="producto.create"/>
             </div>
 
             <div class="col-span-4 row-span-6 bg-neutral-50">

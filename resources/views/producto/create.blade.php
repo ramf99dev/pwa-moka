@@ -1,14 +1,20 @@
 <x-admin-layout>
     <form action="{{ route('producto.store') }}" method="POST">
         @csrf
-        <input type="text" name="nombre">
-        <textarea name="descripcion" id=""></textarea>
-        <input type="number" step="0.01">
-        <select name="categoria">
+        <input type="text" name="nombre" value="{{ old('nombre') }}" required>
+
+        <textarea name="descripcion" id="" required rows="5">{{ old('descripcion') }}</textarea>
+
+        <input type="number" step="0.01" name="precio" value="{{ old('precio') }} required">
+
+        <select name="categoria_id" required>
             @foreach ($categorias as $categoria)
-                <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                <option value="{{ $categoria->id }}">
+                    {{ $categoria->nombre }}
+                </option>
             @endforeach
         </select>
+
         <a href="{{ route('producto.index') }}">Cancelar</a>
         <button>Guardar</button>
         @if ($errors->any())

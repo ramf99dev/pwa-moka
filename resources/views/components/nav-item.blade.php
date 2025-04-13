@@ -1,5 +1,4 @@
-<a href=""
-    class="flex items-center justify-start w-4/5 h-12 pl-8 mt-8 text-xl font-bold bg-pink-100  gap-x-4 rounded-xl hover:text-pink-600 hover:fill-pink-600">
+<a href="{{ route($ruta) }}" class="flex items-center justify-start w-4/5 h-12 pl-8 mt-8 text-xl font-bold gap-x-4 rounded-xl hover:bg-pink-100 hover:text-pink-600 hover:fill-pink-600 {{ $active ? 'bg-pink-100 text-pink-600 fill-pink-600' : '' }}">
     @if ($titulo === 'Productos')
         <svg class="h-8" viewBox="0 0 511.999 511.999">
             <g>
