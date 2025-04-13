@@ -10,12 +10,14 @@ class NavItem extends Component
     public $titulo;
     public $ruta;
     public $active;
+    public $img;
 
-    public function __construct($titulo, $ruta)
+    public function __construct($titulo, $ruta, $img)
     {
         $this->titulo = $titulo;
         $this->ruta = $ruta;
         $this->active = $this->isActiveRoute($ruta);
+        $this->img = $img;
     }
 
     protected function isActiveRoute($routePattern)
@@ -23,19 +25,14 @@ class NavItem extends Component
         $currentRoute = Route::currentRouteName();
         $currentPath = request()->path();
 
-        // If using named routes (e.g., 'producto.index')
         if ($currentRoute) {
-            // Exact match
             if ($currentRoute === $routePattern) return true;
             
-            // Parent route match (e.g., 'producto' matches 'producto.create')
             if (strpos($currentRoute, $routePattern . '.') === 0) return true;
         }
 
-        // If using URL paths (e.g., '/producto')
         $routePath = trim(parse_url(route($routePattern), PHP_URL_PATH), '/');
         if (strpos($currentPath, $routePath) === 0) {
-            // Exact match or subpath match
             return $currentPath === $routePath || 
                    strpos($currentPath, $routePath . '/') === 0;
         }

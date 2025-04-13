@@ -13,7 +13,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::query()->orderBy('id','desc')->simplePaginate(10);
+        $productos = Producto::query()->orderBy('id','desc')->simplePaginate(8);
         return view('producto.index', ['productos' => $productos]);
     }
 
@@ -54,17 +54,27 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Producto $producto)
     {
-        //
+        $categorias = Categoria::query()->orderBy('id','desc')->simplePaginate(100);
+        return view('producto.edit', ['producto' => $producto, 'categorias'=> $categorias]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Producto $producto)
     {
-        //
+        $data = $request->validate([
+            'nombre' => ['required', 'string'],
+            'descripcion' => ['required', 'string'],
+            'categoria_id' => ['required', 'int'],
+            'precio' => ['required', 'decimal:0,5'],
+        ]);
+
+        $producto->update($data);
+
+        return to_route('producto.index', $producto);
     }
 
     /**
