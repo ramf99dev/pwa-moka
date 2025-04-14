@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
+use App\Models\Zona;
 use Illuminate\Http\Request;
 
-class CategoriaController extends Controller
+class ZonaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $categorias = Categoria::query()->orderBy('id', 'desc')->simplePaginate(8);
-        return view('categoria.index', ['categorias' => $categorias]);
+        $zonas = Zona::query()->orderBy('id', 'desc')->simplePaginate(8);
+        return view('zona.index', ['zonas' => $zonas]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('categoria.create');
+        return view('zona.create');
     }
 
     /**
@@ -31,11 +31,12 @@ class CategoriaController extends Controller
     {
         $data = $request->validate([
             'nombre' => ['required', 'string'],
+            'numero_personas' => ['required', 'integer'],
         ]);
 
-        $categoria = Categoria::create($data);
+        $zona = Zona::create($data);
 
-        return to_route('categoria.index', $categoria);
+        return to_route('zona.index', $zona);
     }
 
     /**
@@ -49,32 +50,34 @@ class CategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categoria $categoria)
+    public function edit(Zona $zona)
     {
-        return view('categoria.edit', ['categoria' => $categoria]);
+        return view('zona.edit', ['zona' => $zona]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, categoria $categoria)
+    public function update(Request $request, Zona $zona)
     {
         $data = $request->validate([
             'nombre' => ['required', 'string'],
+            'numero_personas' => ['required', 'integer'],
         ]);
 
-        $categoria->update($data);
 
-        return to_route('categoria.index', $categoria);
+        $zona->update($data);
+
+        return to_route('zona.index', $zona);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categoria $categoria)
+    public function destroy(Zona $zona)
     {
-        $categoria->delete();
+        $zona->delete();
 
-        return to_route('categoria.index');
+        return to_route('zona.index');
     }
 }

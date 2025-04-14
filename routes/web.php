@@ -3,14 +3,20 @@
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ZonaController;
 use Illuminate\Support\Facades\Route;
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::redirect('/', '/producto')->name('dashboard');
+
 Route::resource('producto', ProductoController::class);
 Route::resource('categoria', CategoriaController::class);
+Route::resource('zona', ZonaController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -22,4 +28,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
