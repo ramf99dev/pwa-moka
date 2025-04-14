@@ -24,7 +24,14 @@ class DatabaseSeeder extends Seeder
 
         Categoria::factory()->create([
             'nombre' => 'Postre',
-            'id' => '2'
+            'id' => '1'
+        ]);
+
+        Producto::factory(12)->create([
+            'nombre' => fake()->firstNameFemale(),
+            'categoria_id' => 1,
+            'precio' => 5,
+            'descripcion' => fake()->paragraph(3)
         ]);
     }
 }
