@@ -40,5 +40,8 @@
             </div>
         @endforeach
     </div>
+    <div class="mt-6">
+        {{ $productos->links('vendor.pagination.simple-tailwind') }}
+    </div>
 
 </x-admin-layout>
