@@ -13,8 +13,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::redirect('/', '/producto')->name('dashboard');
-
 Route::resource('producto', ProductoController::class);
 Route::resource('categoria', CategoriaController::class)->parameters([
     'categoria' => 'categoria'

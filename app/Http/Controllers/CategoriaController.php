@@ -12,7 +12,14 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        $categorias = Categoria::query()->orderBy('id', 'desc')->simplePaginate(8);
+        $categorias = Categoria::query()->orderBy('id', 'desc');
+
+        if (request()->has('buscar')) {
+            $categorias = $categorias->where('nombre', 'like', request()->get('buscar', '') . '%');
+        }
+
+        $categorias = $categorias->simplePaginate(8);
+
         return view('categoria.index', ['categorias' => $categorias]);
     }
 

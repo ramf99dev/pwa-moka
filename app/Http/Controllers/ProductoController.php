@@ -13,7 +13,14 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = Producto::query()->orderBy('id','desc')->simplePaginate(8);
+        $productos = Producto::query()->orderBy('id', 'desc');
+
+        if (request()->has('buscar')) {
+            $productos = $productos->where('nombre', 'like', request()->get('buscar', '') . '%');
+        }
+
+        $productos = $productos->simplePaginate(8);
+
         return view('producto.index', ['productos' => $productos]);
     }
 
@@ -21,8 +28,8 @@ class ProductoController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
-        $categorias = Categoria::query()->orderBy('id','desc')->simplePaginate(100);
+    {
+        $categorias = Categoria::query()->orderBy('id', 'desc')->simplePaginate(100);
         return view('producto.create', ['categorias' => $categorias]);
     }
 
@@ -56,8 +63,8 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        $categorias = Categoria::query()->orderBy('id','desc')->simplePaginate(100);
-        return view('producto.edit', ['producto' => $producto, 'categorias'=> $categorias]);
+        $categorias = Categoria::query()->orderBy('id', 'desc')->simplePaginate(100);
+        return view('producto.edit', ['producto' => $producto, 'categorias' => $categorias]);
     }
 
     /**

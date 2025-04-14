@@ -12,7 +12,14 @@ class ZonaController extends Controller
      */
     public function index()
     {
-        $zonas = Zona::query()->orderBy('id', 'desc')->simplePaginate(8);
+        $zonas = Zona::query()->orderBy('id', 'desc');
+
+        if (request()->has('buscar')) {
+            $zonas = $zonas->where('nombre', 'like', request()->get('buscar', '') . '%');
+        }
+
+        $zonas = $zonas->simplePaginate(8);
+
         return view('zona.index', ['zonas' => $zonas]);
     }
 

@@ -14,7 +14,14 @@ class UsuarioAdminController extends Controller
      */
     public function index()
     {
-        $usuarios = User::query()->orderBy('id', 'desc')->simplePaginate(8);
+        $usuarios = User::query()->orderBy('id', 'desc');
+
+        if (request()->has('buscar')) {
+            $usuarios = $usuarios->where('name', 'like', request()->get('buscar', '') . '%');
+        }
+
+        $usuarios = $usuarios->simplePaginate(8);
+
         return view('usuario.index', ['usuarios' => $usuarios]);
     }
 

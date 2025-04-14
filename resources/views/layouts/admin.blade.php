@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,10 +14,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @laravelPWA
     </head>
-    <body class="flex flex-row bg-slate-50">
+
+    <body class="flex min-h-screen flex-row bg-slate-50">
         @include('components.sidebar')
-        <div class="flex flex-col w-full m-2">
+        <div class="m-2 flex w-full flex-col">
             {{ $slot }}
         </div>
     </body>
+
 </html>

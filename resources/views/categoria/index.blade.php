@@ -1,5 +1,15 @@
 <x-admin-layout>
-    <x-add-button ruta="categoria.create"></x-add-button>
+    <div class="flex flex-row place-items-center justify-between">
+        <x-add-button ruta="categoria.create"></x-add-button>
+        <form class="flex w-full flex-row place-items-center" action="{{ route('categoria.index') }}" method="GET">
+            <input name="buscar" type="text" class="h-10 w-full rounded-lg border-pink-600 py-4"
+                placeholder="Buscar...">
+            <button
+                class="relative -ml-10 inline-block size-8 cursor-pointer justify-center rounded-lg bg-gradient-to-tr from-pink-400 to-pink-300 p-2 shadow transition-colors hover:scale-110">
+                <img src="/images/nav-icons/buscar.svg" alt="" class="h-full place-self-center">
+            </button>
+        </form>
+    </div>
     <div class="mt-3 grid grid-cols-1 gap-4 text-wrap md:grid-cols-2">
         @foreach ($categorias as $categoria)
             <div>
