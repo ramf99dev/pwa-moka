@@ -4,30 +4,26 @@
         @foreach ($categorias as $categoria)
             <div>
                 <div class="space-y-3 rounded-lg bg-white p-4 shadow">
-                    <div class="flex place-content-between items-baseline space-x-2 text-xl">
+                    <div class="flex items-baseline space-x-2 text-xl">
                         <div
                             class="rounded-lg bg-pink-200 bg-opacity-50 p-1.5 text-lg font-medium uppercase tracking-wider text-pink-800">
                             {{ $categoria->nombre }}
                         </div>
-                        <div class="flex place-content-end">
-                            <div>
-                                <a class="inline-block" href="{{ route('categoria.edit', $categoria) }}"><img
-                                        class="h-4" src="/images/nav-icons/editar.svg" alt=""></a>
-                                <form class="inline-block" action="{{ route('categoria.destroy', $categoria) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button>
-                                        <img class="h-4" src="/images/nav-icons/borrar.svg" alt="">
-                                    </button>
-                                </form>
-                            </div>
+                    </div>
+                    <div class="flex place-content-between">
+                        <div>
+                            <a class="inline-block" href="{{ route('categoria.edit', $categoria) }}"><img class="h-4"
+                                    src="/images/nav-icons/editar.svg" alt=""></a>
+                            <form class="inline-block" action="{{ route('categoria.destroy', $categoria) }}"
+                                method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button>
+                                    <img class="h-4" src="/images/nav-icons/borrar.svg" alt="">
+                                </button>
+                            </form>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         @endforeach

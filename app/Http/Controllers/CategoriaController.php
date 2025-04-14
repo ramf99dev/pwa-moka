@@ -57,11 +57,12 @@ class CategoriaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, categoria $categoria)
+    public function update(Request $request, Categoria $categoria)
     {
         $data = $request->validate([
             'nombre' => ['required', 'string'],
         ]);
+
 
         $categoria->update($data);
 
@@ -71,7 +72,7 @@ class CategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(categoria $categoria)
+    public function destroy(Categoria $categoria)
     {
         $categoria->delete();
 

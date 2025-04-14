@@ -19,8 +19,9 @@
             <ul x-bind:Iexpanded="expanded">
                 <x-nav-item titulo="Productos" ruta="producto.index" img="/images/nav-icons/productos"></x-nav-item>
                 <x-nav-item titulo="Categorias" ruta="categoria.index" img="/images/nav-icons/categorias"></x-nav-item>
+                <x-nav-item titulo="Usuarios" ruta="usuario.index" img="/images/nav-icons/usuarios"></x-nav-item>
                 <x-nav-item titulo="Zonas" ruta="zona.index" img="/images/nav-icons/zonas"></x-nav-item>
-                {{-- <x-nav-item titulo="Usuarios" ruta="usuarios.index" img="/images/nav-icons/usuarios"></x-nav-item>
+                {{-- 
                 <x-nav-item titulo="Reservas" ruta="reservas.index" img="/images/nav-icons/reservas"></x-nav-item>
                 <x-nav-item titulo="Ordenes" ruta="ordenes.index" img="/images/nav-icons/ordenes"></x-nav-item>
                 <x-nav-item titulo="Estadisticas" ruta="estadisticas.index"
