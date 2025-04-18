@@ -1,22 +1,23 @@
 <x-admin-layout>
     <div class="my-3 w-fit gap-4 space-y-3 place-self-center self-center rounded-lg bg-white p-4 shadow md:w-96">
-        <form action="{{ route('producto.store') }}" method="POST">
+        <form action="{{ route('producto.store') }}" method="POST" class="text-pink-600">
             @csrf
             <div class="flex flex-col gap-2">
                 <div class="flex flex-col gap-1">
                     <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" value="{{ old('nombre') }}" required
-                        class="rounded-lg border-pink-600">
+                        class="rounded-lg border-2 border-pink-600">
                 </div>
 
                 <div class="mt-3 flex flex-col gap-1">
                     <label for="descripcion">Descripción</label>
-                    <textarea class="resize-none rounded-lg border-pink-600" name="descripcion" id="" required rows="5">{{ old('descripcion') }}</textarea>
+                    <textarea class="resize-none rounded-lg border-2 border-pink-600" name="descripcion" id="" required
+                        rows="5">{{ old('descripcion') }}</textarea>
                 </div>
 
                 <div class="mt-3 flex flex-col gap-1">
                     <label for="categoria">Categoria</label>
-                    <select class="rounded-lg border-pink-600" name="categoria_id" required>
+                    <select class="rounded-lg border-2 border-pink-600" name="categoria_id" required>
                         <option value="" disabled selected>Selecciona una categoria</option>
                         @foreach ($categorias as $categoria)
                             <option value="{{ $categoria->id }}">
@@ -28,7 +29,7 @@
 
                 <div class="mt-3 flex flex-col gap-1">
                     <label for="precio">Precio</label>
-                    <input class="rounded-lg border-pink-600" type="number" step="0.01" min="0"
+                    <input class="rounded-lg border-2 border-pink-600" type="number" step="0.01" min="0"
                         name="precio" value="{{ old('precio') }}" required>
                 </div>
             </div>

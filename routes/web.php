@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 Route::resource('producto', ProductoController::class);
 Route::resource('categoria', CategoriaController::class)->parameters([
@@ -21,7 +21,7 @@ Route::resource('usuario', UsuarioAdminController::class);
 Route::resource('zona', ZonaController::class);
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

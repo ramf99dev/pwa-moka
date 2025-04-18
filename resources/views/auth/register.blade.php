@@ -1,58 +1,76 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="es">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de Usuario - MokaFrost</title>
+        <link rel="stylesheet" href="{{ asset('css/style_register_user.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="register-container">
+            <img src="{{ asset('img/mokalogo.png') }}" alt="Logo MokaFrost" class="register-logo">
+            <div class="register-box">
+                <a href="{{ route('login') }}" class="back-link">
+                    <ion-icon name="arrow-back-outline"></ion-icon> Volver
+                </a>
+                <h2>Registro de Usuario</h2>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="input-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                            placeholder="Ej: María Perez" required>
+                    </div>
+
+                    {{-- <div class="input-group">
+                        <label for="cedula">Cédula</label>
+                        <input type="text" id="cedula" name="cedula" value="{{ old('cedula') }}"
+                            placeholder="Ej: 12345678" required>
+                    </div> --}}
+
+                    <div class="input-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" value="{{ old('telefono') }}"
+                            placeholder="Ej: 0414-1234567" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Correo</label>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}"
+                            placeholder="Ej: correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="********" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password_confirmation">Confirmar Contraseña</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation"
+                            placeholder="********" required>
+                    </div>
+
+                    @if ($errors->any())
+                        <div class="message">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <button class="btn-register" type="submit">REGISTRARSE</button>
+                </form>
+            </div>
         </div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="mt-4">
-            <x-input-label for="telefono" :value="__('Telefeno')" />
-            <x-text-input id="telefono" class="block mt-1 w-full" type="text" name="telefono" :value="old('telefono')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('telefono')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

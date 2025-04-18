@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="my-3 w-fit gap-4 space-y-3 place-self-center self-center rounded-lg bg-white p-4 shadow md:w-96">
-        <form action="{{ route('categoria.store') }}" method="POST">
+        <form action="{{ route('categoria.store') }}" method="POST" class="text-pink-600">
             @csrf
             <div class="flex flex-col gap-2">
                 <div class="flex flex-col gap-1">

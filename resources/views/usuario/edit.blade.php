@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="my-3 w-fit gap-4 space-y-3 place-self-center self-center rounded-lg bg-white p-4 shadow md:w-96">
-        <form action="{{ route('usuario.update', $usuario) }}" method="POST">
+        <form action="{{ route('usuario.update', $usuario) }}" method="POST" class="text-pink-600">
             @csrf
             @method('PUT')
             <div class="mt-3 flex flex-col gap-4">

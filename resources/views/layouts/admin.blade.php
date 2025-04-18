@@ -15,7 +15,7 @@
         @laravelPWA
     </head>
 
-    <body class="flex min-h-screen flex-row bg-slate-50">
+    <body class="flex min-h-screen flex-row bg-pink-600">
         @include('components.sidebar')
         <div class="m-2 flex w-full flex-col">
             {{ $slot }}

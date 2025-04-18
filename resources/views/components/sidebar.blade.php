@@ -2,15 +2,14 @@
     <aside class="h-full w-48" :class="{ 'w-48': expanded, 'w-25': !expanded }">
         <nav class="flex h-full flex-col border-r bg-white shadow-sm">
             <div class="flex items-center justify-between p-4 pb-2">
-                <img src="/images/mokalogopink.png" alt="" class="overflow-hidden transition-all"
+                <img src="/images/mokalogopink.png" alt=""
+                    class="overflow-hidden rounded-lg bg-yellow-200 bg-opacity-50 p-1.5 transition-all"
                     :class="{ 'w-32': expanded, 'w-0': !expanded }">
-                <button @click="expanded = !expanded" class="rounded-lg bg-gray-50 p-1.5 hover:bg-gray-100"
-                    x-show="expanded">
+                <button @click="expanded = !expanded" class="rounded-lg p-1.5 hover:bg-gray-100" x-show="expanded">
 
                     <img src="/images/nav-icons/arrow-left.svg" alt="" class="h-6">
                 </button>
-                <button @click="expanded = !expanded" class="rounded-lg bg-gray-50 p-1.5 hover:bg-gray-100"
-                    x-show="!expanded">
+                <button @click="expanded = !expanded" class="rounded-lg p-1.5 hover:bg-gray-100" x-show="!expanded">
 
                     <img src="/images/nav-icons/arrow-right.svg" alt="" class="h-6">
                 </button>
