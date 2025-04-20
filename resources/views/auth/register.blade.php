@@ -73,4 +73,33 @@
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     </body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('telefono');
+
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    const formatted = formatPhoneNumber(e.target.value);
+                    if (formatted !== e.target.value) {
+                        e.target.value = formatted;
+                    }
+                });
+
+                phoneInput.closest('form')?.addEventListener('submit', function() {
+                    phoneInput.value = phoneInput.value.replace(/\D/g, '');
+                });
+            }
+        });
+
+        function formatPhoneNumber(value) {
+            let phoneNumber = value.replace(/\D/g, '');
+
+            if (phoneNumber.length > 4) {
+                phoneNumber = phoneNumber.substring(0, 4) + '-' + phoneNumber.substring(4);
+            }
+
+            return phoneNumber;
+        }
+    </script>
+
 </html>
