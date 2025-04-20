@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Fredoka', sans-serif;
-    background-color: #D8006B; 
+    background-color: #D8006B;
     color: white;
 }
 
@@ -23,7 +23,8 @@ body {
 /* Galería de productos: 3 tarjetas visibles SIEMPRE */
 .products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Siempre 3 columnas */
+    grid-template-columns: repeat(3, 1fr);
+    /* Siempre 3 columnas */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -36,13 +37,13 @@ body {
     border-radius: 10px;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 .product-card img {
@@ -60,7 +61,7 @@ body {
 }
 
 .cta {
-    background-color: #FFDA1A; 
+    background-color: #FFDA1A;
     color: black;
     padding: 40px 20px;
 }
@@ -79,7 +80,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     padding-right: 20px;
     text-align: center;
     font-size: 60px;
@@ -95,7 +96,8 @@ body {
     color: white;
     padding: 14px 30px;
     border: none;
-    border-radius: 40px; /* Más ovalado */
+    border-radius: 40px;
+    /* Más ovalado */
     font-weight: bold;
     font-size: 50px;
     cursor: pointer;
@@ -202,7 +204,7 @@ h2 span {
     text-decoration-color: #F00086;
     text-decoration-thickness: 4px;
 }
-    
+
 
 .espacios-container {
     position: relative;
@@ -213,12 +215,12 @@ h2 span {
 .plano-img {
     width: 100%;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .horarios {
     background-color: #FFDA1A;
-    color: #070707; 
+    color: #070707;
     padding: 40px 20px;
     text-align: center;
 }
@@ -236,12 +238,12 @@ h2 span {
 
 .horarios .highlight {
     font-weight: bold;
-    color: #090909; 
+    color: #090909;
 }
 
 .tag {
     position: absolute;
-    background-color:#F00086;
+    background-color: #F00086;
     color: #fff;
     padding: 4px 10px;
     border-radius: 20px;
@@ -290,10 +292,25 @@ h2 span {
 }
 
 
-.tag.general { top: 45%; left: 5%; }
-.tag.terraza { bottom: 25%; left: 10%; }
-.tag.privada { top: 20%; right: 5%; }
-.tag.vip { bottom: 10%; right: 10%; }
+.tag.general {
+    top: 45%;
+    left: 5%;
+}
+
+.tag.terraza {
+    bottom: 25%;
+    left: 10%;
+}
+
+.tag.privada {
+    top: 20%;
+    right: 5%;
+}
+
+.tag.vip {
+    bottom: 10%;
+    right: 10%;
+}
 
 @media (max-width: 768px) {
     .cta-content {
@@ -317,9 +334,9 @@ h2 span {
 
     .about-image img {
         max-width: 300px;
-        
+
     }
-    
+
     .about p {
         font-size: 20px;
         padding: 0 15px;
@@ -371,4 +388,44 @@ h2 span {
     .about-image img {
         max-width: 300px;
     }
+}
+
+.float {}
+
+.float button,
+input[type="submit"],
+input[type="reset"] {
+
+
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.float a,
+button,
+input[type="submit"],
+input[type="reset"] {
+    color: #D8006B;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.float form, .float a {
+    margin: 20px;
+    display: inline-block;
+    background-color: #FFDA1A;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    margin: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.float {
+    text-align: end;
 }

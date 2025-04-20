@@ -17,9 +17,21 @@
             </div>
             <ul x-bind:Iexpanded="expanded">
                 <x-nav-item titulo="Productos" ruta="producto.index" img="/images/nav-icons/productos"></x-nav-item>
-                <x-nav-item titulo="Categorias" ruta="categoria.index" img="/images/nav-icons/categorias"></x-nav-item>
-                <x-nav-item titulo="Usuarios" ruta="usuario.index" img="/images/nav-icons/usuarios"></x-nav-item>
-                <x-nav-item titulo="Zonas" ruta="zona.index" img="/images/nav-icons/zonas"></x-nav-item>
+                @if (Auth::user()->permiso === 0)
+                    <x-nav-item titulo="Categorias" ruta="categoria.index"
+                        img="/images/nav-icons/categorias"></x-nav-item>
+                    <x-nav-item titulo="Usuarios" ruta="usuario.index" img="/images/nav-icons/usuarios"></x-nav-item>
+                    <x-nav-item titulo="Zonas" ruta="zona.index" img="/images/nav-icons/zonas"></x-nav-item>
+                @endif
+                <x-nav-item titulo="Volver" ruta="home" img="/images/nav-icons/volver"></x-nav-item>
+                <div>
+                    <form method="POST" action="{{ route('logout') }}"
+                        class="mx-1 my-1.5 flex cursor-pointer items-center overflow-hidden rounded-md px-2 py-2 font-medium text-gray-600 transition-colors hover:bg-yellow-100 md:mx-3">
+                        @csrf
+                        <img src="/images/nav-icons/cerrar-sesion.svg" alt="" class="h-6">
+                        <button type="submit" class="ml-3">Cerrar Sesión</button>
+                    </form>
+                </div>
                 {{-- 
                 <x-nav-item titulo="Reservas" ruta="reservas.index" img="/images/nav-icons/reservas"></x-nav-item>
                 <x-nav-item titulo="Ordenes" ruta="ordenes.index" img="/images/nav-icons/ordenes"></x-nav-item>
