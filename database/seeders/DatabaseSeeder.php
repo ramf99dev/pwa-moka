@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
             'nombre' => fake()->firstNameFemale(),
             'categoria_id' => 1,
             'precio' => 5,
-            'descripcion' => fake()->paragraph(3)
+            'descripcion' => fake()->paragraph(3),
+            'imagen' => 'images/uploads/1745118941.jpg'
         ]);
     }
 }

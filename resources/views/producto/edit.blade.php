@@ -35,6 +35,12 @@
                 </div>
             </div>
 
+            <div class="mt-3 flex flex-col gap-1">
+                <label for="imagen">Imagen</label>
+                <input required class="rounded-lg border-2 border-pink-600" type="file" name="imagen"
+                    id="imagen">
+            </div>
+
             <div class="mt-9 flex flex-row place-content-between gap-4">
                 <x-cancel-button ruta="producto.index"></x-cancel-button>
                 <x-save-button></x-save-button>
