@@ -47,13 +47,15 @@ body {
 .input-group {
   position: relative;
   margin-bottom: 25px;
-  overflow: hidden; /* Esto evita que los íconos se salgan del marco */
+  overflow: hidden;
+  /* Esto evita que los íconos se salgan del marco */
 }
 
 
 .input-group input {
   width: 100%;
-  padding: 12px 50px 12px 15px; /* Espacio para el ícono */
+  padding: 12px 50px 12px 15px;
+  /* Espacio para el ícono */
   font-size: 16px;
   border: 2px solid #D8006B;
   border-radius: 10px;
@@ -121,10 +123,21 @@ body {
 
 @media (max-width: 480px) {
   .login-box {
-      padding: 30px 20px;
+    padding: 30px 20px;
   }
 
   .login-box h2 {
-      font-size: 22px;
+    font-size: 22px;
   }
+}
+
+.message {
+  text-align: start;
+  background-color: #fdecea;
+  color: #b8004c;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
 }

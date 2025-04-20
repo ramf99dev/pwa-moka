@@ -30,6 +30,16 @@
                         <ion-icon name="eye-outline"></ion-icon>
                     </div>
 
+                    @if ($errors->any())
+                        <div class="message">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <button type="submit" class="btn-login">INGRESAR</button>
 
                     <a href="{{ route('password.request') }}" class="forgot-password">¿Olvidaste tu contraseña?</a>
@@ -38,6 +48,7 @@
                         <button type="button" class="btn-register">REGISTRARSE</button>
                     </a>
                 </form>
+
             </div>
         </div>
 

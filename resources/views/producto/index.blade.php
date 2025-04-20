@@ -3,11 +3,11 @@
     <div class="mt-3 grid grid-cols-1 gap-4 text-wrap md:grid-cols-4">
         @foreach ($productos as $producto)
             <div>
-                <div class="flex w-fit flex-col rounded-lg bg-white text-center shadow">
-                    <div class="aspect-square size-full h-32 self-center overflow-hidden">
+                <div class="flex h-96 w-full flex-col rounded-lg bg-white text-center shadow">
+                    <div class="size-full h-32 overflow-hidden">
                         <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}" class="rounded-t-lg">
                     </div>
-                    <div class="space-y-2 p-4">
+                    <div class="h-64 space-y-2 p-4">
                         <div
                             class="rounded-lg bg-yellow-200 bg-opacity-50 p-1.5 text-lg font-medium uppercase tracking-wider text-yellow-800">
                             {{ $producto->nombre }}
@@ -15,7 +15,7 @@
                         <div class="text-base text-gray-400">
                             {{ $producto->categoria->nombre }}
                         </div>
-                        <div class="text-wrap text-sm text-gray-700">
+                        <div class="h-[7.5rem] text-wrap text-sm text-gray-700">
                             {{ $producto->descripcion }}
                         </div>
 
