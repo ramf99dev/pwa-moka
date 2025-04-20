@@ -22,7 +22,7 @@
 
                     <div class="input-group">
                         <label for="name">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" value="{{ old('nombre') }}"
+                        <input type="text" id="nombre" name="name" value="{{ old('nombre') }}"
                             placeholder="Ej: María Perez" required>
                     </div>
 
@@ -84,15 +84,14 @@
                         e.target.value = formatted;
                     }
                 });
-
-                phoneInput.closest('form')?.addEventListener('submit', function() {
-                    phoneInput.value = phoneInput.value.replace(/\D/g, '');
-                });
             }
         });
 
         function formatPhoneNumber(value) {
-            let phoneNumber = value.replace(/\D/g, '');
+            let phoneNumber = value.replace(/[^\d-]/g, '');
+
+            const parts = phoneNumber.split('-');
+            phoneNumber = parts.join('');
 
             if (phoneNumber.length > 4) {
                 phoneNumber = phoneNumber.substring(0, 4) + '-' + phoneNumber.substring(4);

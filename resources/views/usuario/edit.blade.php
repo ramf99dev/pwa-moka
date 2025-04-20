@@ -24,8 +24,8 @@
 
                 <div class="mt-3 flex flex-col gap-1">
                     <label for="telefono">Telefono</label>
-                    <input class="rounded-lg border-pink-600" type="text" step="1" min="0"
-                        name="telefono" value="{{ $usuario->telefono }}" required>
+                    <input class="rounded-lg border-pink-600" type="tel" step="1" min="0"
+                        name="telefono" id="telefono" value="{{ $usuario->telefono }}" required>
                 </div>
             </div>
 
@@ -45,5 +45,32 @@
             @endif
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const phoneInput = document.getElementById('telefono');
+
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    const formatted = formatPhoneNumber(e.target.value);
+                    if (formatted !== e.target.value) {
+                        e.target.value = formatted;
+                    }
+                });
+            }
+        });
+
+        function formatPhoneNumber(value) {
+            let phoneNumber = value.replace(/[^\d-]/g, '');
+
+            const parts = phoneNumber.split('-');
+            phoneNumber = parts.join('');
+
+            if (phoneNumber.length > 4) {
+                phoneNumber = phoneNumber.substring(0, 4) + '-' + phoneNumber.substring(4);
+            }
+
+            return phoneNumber;
+        }
+    </script>
 
 </x-admin-layout>

@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('permiso')->default(2);
-            $table->integer('telefono');
+            $table->char('telefono', 255);
             // $table->integer('cedula');
         });
     }

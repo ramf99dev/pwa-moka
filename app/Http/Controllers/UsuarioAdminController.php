@@ -42,7 +42,7 @@ class UsuarioAdminController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', Rules\Password::defaults()],
-            'telefono' => ['required', 'int'],
+            'telefono' => ['required', 'string'],
         ]);
 
         $usuario = User::create([
@@ -81,7 +81,7 @@ class UsuarioAdminController extends Controller
             $data = $request->validate([
                 'name' => ['required', 'string', 'max:255'],
                 'password' => ['required', Rules\Password::defaults()],
-                'telefono' => ['required', 'int'],
+                'telefono' => ['required', 'string'],
             ]);
 
             $usuario->update([
@@ -95,7 +95,7 @@ class UsuarioAdminController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
                 'password' => ['required', Rules\Password::defaults()],
-                'telefono' => ['required', 'int'],
+                'telefono' => ['required', 'string'],
             ]);
 
             $usuario->update([
