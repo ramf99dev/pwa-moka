@@ -4,19 +4,25 @@
         @foreach ($productos as $producto)
             <div>
                 <div class="space-y-3 rounded-lg bg-white p-4 shadow">
-                    <div class="flex items-baseline space-x-2 text-xl">
-                        <div
-                            class="rounded-lg bg-yellow-200 bg-opacity-50 p-1.5 text-lg font-medium uppercase tracking-wider text-yellow-800">
-                            {{ $producto->nombre }}
+                    <div class="flex place-content-between">
+                        <div class="flex items-baseline space-x-2 text-xl">
+                            <div
+                                class="rounded-lg bg-yellow-200 bg-opacity-50 p-1.5 text-lg font-medium uppercase tracking-wider text-yellow-800">
+                                {{ $producto->nombre }}
+                            </div>
+                            <div class="text-base text-gray-400">
+                                {{ $producto->categoria->nombre }}
+                            </div>
                         </div>
-                        <div class="text-base text-gray-400">
-                            {{ $producto->categoria->nombre }}
+                        <div class="size-32 self-end">
+                            <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}">
                         </div>
-                    </div>
 
+                    </div>
                     <div class="text-wrap text-sm text-gray-700">
                         {{ $producto->descripcion }}
                     </div>
+
                     <div class="flex place-content-between">
                         <div class="text-sm font-medium text-black">
                             {{ $producto->precio }}$

@@ -1,6 +1,6 @@
 <x-admin-layout>
     <div class="my-3 w-fit gap-4 space-y-3 place-self-center self-center rounded-lg bg-white p-4 shadow md:w-96">
-        <form action="{{ route('producto.store') }}" method="POST" class="text-pink-600">
+        <form action="{{ route('producto.store') }}" method="POST" class="text-pink-600" enctype="multipart/form-data">
             @csrf
             <div class="flex flex-col gap-2">
                 <div class="flex flex-col gap-1">
@@ -31,6 +31,12 @@
                     <label for="precio">Precio</label>
                     <input class="rounded-lg border-2 border-pink-600" type="number" step="0.01" min="0"
                         name="precio" value="{{ old('precio') }}" required>
+                </div>
+
+                <div class="mt-3 flex flex-col gap-1">
+                    <label for="imagen">Imagen</label>
+                    <input required class="rounded-lg border-2 border-pink-600" type="file" name="imagen"
+                        id="imagen">
                 </div>
             </div>
 
