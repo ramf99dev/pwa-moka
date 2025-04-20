@@ -29,7 +29,9 @@
                         class="mx-1 my-1.5 flex cursor-pointer items-center overflow-hidden rounded-md px-2 py-2 font-medium text-gray-600 transition-colors hover:bg-yellow-100 md:mx-3">
                         @csrf
                         <img src="/images/nav-icons/cerrar-sesion.svg" alt="" class="h-6">
-                        <button type="submit" class="ml-3">Cerrar Sesión</button>
+                        <button type="submit" class="overflow-hidden transition-all"
+                            :class="{ 'ml-3 w52': expanded, 'w-0': !expanded }">Cerrar
+                            Sesión</button>
                     </form>
                 </div>
                 {{-- 

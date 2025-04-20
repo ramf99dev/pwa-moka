@@ -1,8 +1,8 @@
 <x-admin-layout>
     <x-search-bar ruta="producto"></x-search-bar>
-    <div class="mt-3 flex flex-row flex-wrap gap-4">
+    <div class="mt-3 grid grid-cols-1 gap-4 text-wrap md:grid-cols-4">
         @foreach ($productos as $producto)
-            <div class="w-64">
+            <div>
                 <div class="flex w-fit flex-col rounded-lg bg-white text-center shadow">
                     <div class="aspect-square size-full h-32 self-center overflow-hidden">
                         <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}" class="rounded-t-lg">
