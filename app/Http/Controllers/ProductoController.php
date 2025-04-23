@@ -14,14 +14,14 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::query()->orderBy('id', 'desc');
-
+        
         if (request()->has('buscar')) {
             $productos = $productos->where('nombre', 'like', request()->get('buscar', '') . '%');
         }
 
         $productos = $productos->simplePaginate(8);
+       return view('producto.index', ['productos' => $productos]);
 
-        return view('producto.index', ['productos' => $productos]);
     }
 
     /**

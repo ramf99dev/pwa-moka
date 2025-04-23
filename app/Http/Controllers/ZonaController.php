@@ -12,6 +12,9 @@ class ZonaController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->permiso !== 0) {
+            abort(403, 'Acceso denegado');
+        }
         $zonas = Zona::query()->orderBy('id', 'desc');
 
         if (request()->has('buscar')) {
@@ -20,6 +23,9 @@ class ZonaController extends Controller
 
         $zonas = $zonas->simplePaginate(8);
 
+        return view('zona.index', ['zonas' => $zonas]);
+
+        $zonas = Zona::all();
         return view('zona.index', ['zonas' => $zonas]);
     }
 

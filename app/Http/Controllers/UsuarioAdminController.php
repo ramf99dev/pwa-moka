@@ -16,12 +16,18 @@ class UsuarioAdminController extends Controller
     {
         $usuarios = User::query()->orderBy('id', 'desc');
 
+        if (auth()->user()->permiso !== 0) {
+            abort(403, 'Acceso denegado');
+        }
         if (request()->has('buscar')) {
             $usuarios = $usuarios->where('name', 'like', request()->get('buscar', '') . '%');
         }
 
         $usuarios = $usuarios->simplePaginate(8);
 
+        return view('usuario.index', ['usuarios' => $usuarios]);
+
+        $usuarios = User::all();
         return view('usuario.index', ['usuarios' => $usuarios]);
     }
 

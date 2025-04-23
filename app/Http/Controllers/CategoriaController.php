@@ -11,8 +11,12 @@ class CategoriaController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   if (auth()->user()->permiso !== 0) {
+        abort(403, 'Acceso denegado');
+    }
         $categorias = Categoria::query()->orderBy('id', 'desc');
+        $categorias = Categoria::all();
+    return view('categoria.index', compact('categorias'));
 
         if (request()->has('buscar')) {
             $categorias = $categorias->where('nombre', 'like', request()->get('buscar', '') . '%');
@@ -85,4 +89,6 @@ class CategoriaController extends Controller
 
         return to_route('categoria.index');
     }
+    
+    
 }
