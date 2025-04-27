@@ -103,6 +103,3 @@ class ProductoController extends Controller
         return to_route('producto.index');
     }
 }
-
-//app/Http/Controllers/ProductoController.php
-

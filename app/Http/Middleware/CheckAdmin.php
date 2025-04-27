@@ -16,5 +16,3 @@ class CheckAdmin {
         return redirect('/')->with('error', 'Acceso no autorizado');
     }
 }
-
-//app/Http/Middleware/CheckAdmin.php

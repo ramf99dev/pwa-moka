@@ -92,4 +92,3 @@ class CategoriaController extends Controller
     
     
 }
-// app/Http/Controllers/CategoriaController.php

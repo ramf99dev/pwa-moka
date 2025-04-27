@@ -128,4 +128,3 @@ class UsuarioAdminController extends Controller
         return to_route('usuario.index');
     }
 }
-    //app/Http/Controllers/UsuarioAdminController.php

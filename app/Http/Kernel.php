@@ -60,4 +60,3 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\CheckAdmin::class, // middleware 
     ];
 }
-//app/Http/Kernel.php
